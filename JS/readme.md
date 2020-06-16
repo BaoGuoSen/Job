@@ -5,12 +5,12 @@
   函数声明在js解析时提升，函数表达式在js运行并表达式运行完后才能进行调用<br>
   例：
   
-    getName()//oaoafly
-		var getName = function() {
-			console.log('wscat')
-		}
-		getName()//wscat
-		function getName() {
-			console.log('oaoafly')
-		}
-		getName()//wscat
+    	getName()//oaoafly
+	var getName = function() {
+		console.log('wscat')
+	}
+	getName()//wscat
+	function getName() {
+		console.log('oaoafly')
+	}
+	getName()//wscat
