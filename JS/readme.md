@@ -47,3 +47,66 @@ xhr.send();
 - 垃圾收集器在运行的时候回给存储在内存中的所有变量加上标记，然后会去掉环境中的变量以及被环境中的变量所引用的变量的标记，在此之后会清除仍然还存在标记的变量。
 2. 引用计数（不常见）
 - 跟踪记录每个值被引用的次数，如果次数为0就清除，可是存在一个循环引用的问题，使得引用次数永远不可能为0就永远不会被清除。
+## JS创建对象的方式
+1. 工厂模式
+```JavaScript
+function Person() {
+  var o = new Object();
+  o.name = 'hanmeimei';
+  o.say = function() {
+    alert(this.name);
+  }
+  return o;
+}
+var person1 = Person();
+```
+- 优点：解决了创建多个相似对象的问题
+- 缺点：无法识别对象的类型，全是Object
+2. 构造函数模式
+```JavaScript
+function Person() {
+  this.name = 'hanmeimei';
+  this.say = function() {
+    alert(this.name)
+  }
+}
+var person1 = new Person();
+```
+- 优点：可以通过instanceof识别对象的类型
+- 缺点：每个实例的方法都是一样的，浪费资源。
+3. 原型模式
+```JavaScript
+function Person() {}
+Person.prototype.name = 'hanmeimei';
+Person.prototype.say = function() {
+  alert(this.name);
+}
+var person1 = new Person();
+```
+- 优点：方法共享了
+- 缺点：由于所有实例共享原型对象的对象，如果有数组，实例对其更改，那么所有实例的数组对象都被更改了
+4. 构造函数和原型模式的组合（最常见）
+```JavaScirpt
+function Person(name) {
+  this.name = name
+  this.friends = ['lilei']
+}
+Person.prototype.say = function() {
+  console.log(this.name)
+}
+var person1 = new Person('hanmeimei')
+person1.say() //hanmeimei
+```
+- 优点：解决了共享方法的缺点
+5. 动态原型模式
+``` JavaScript
+function Person(name) {
+  this.name = name
+  if(typeof this.say != 'function') {
+    Person.prototype.say = function(
+    alert(this.name)
+  }
+}
+```
+- 优点：将原型对象封装在构造函数里，变得更直观
+
