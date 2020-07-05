@@ -16,6 +16,15 @@
   align-items:center;
 }
 ```
+3. 绝对定位，将中心点平移自身宽高一半
+```CSS
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+```
 ## CSS样式优先级
 - ！important > 内联样式 > ID 选择器 > 类选择器 = 属性选择器 = 伪类选择器 > 标签选择器 = 伪元素选择器
 ## 为什么img是行内元素还可以设置宽高
