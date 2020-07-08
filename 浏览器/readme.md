@@ -28,3 +28,14 @@
 ## XSS与CSRF与防范
 1. XSS（跨域脚本攻击） 设置cookie的HttpOnly属性
 2. CSRF（跨域请求伪造） 验证码  HTTP头的Referer字段记录了HTTP请求源，服务端可以检查是否是自己网站的请求从而拒绝。在HTTP头中加入随机token字段，验证。对cookie设置SameSite属性，防止第三方网站访问cookie；
+## 提升页面加载速度
+1. 合并压缩js、css文件，减少Http请求数
+2. 延迟加载不需要的资源
+3. 使用sprites合并细碎的小图片
+4. 使用内嵌的base64图片代替url
+5. 对静态资源使用CDN
+6. 合理配置缓存策略
+7. 服务端启用gzip
+8. 支持http2
+9. 减少阻塞脚本，使用async
+10. 减少重定向
