@@ -21,3 +21,10 @@
 ## 父子组件通信
 1. props向下传递，事件冒泡向上传递；
 2. v-model实现双向绑定；
+## 页面组件间的传值
+1. 使用vue-router跳转链接带参数；
+2. 使用本地缓存localstorage；
+3. 使用vuex数据管理传参。
+## keep-alive组件的作用
+1. keep-alive 可以在组件切换时，保存其包裹的组件的状态，使其不被销毁，防止多次渲染。
+其拥有两个独立的生命周期钩子函数 actived 和 deactived，使用 keep-alive 包裹的组件在切换时不会被销毁，而是缓存到内存中并执行 deactived 钩子函数，命中缓存渲染后会执行 actived 钩子函数。
