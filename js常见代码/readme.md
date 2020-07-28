@@ -145,5 +145,57 @@ var ex = new Example("name");
 console.log(ex.getName()); // private
 console.log(ex._private); // undefined
 ```
-    
-  
+## 最长公共子串
+```JavaScript
+function demo(str1,str2) {
+  let m = str1.length;
+  let n = str2.length;
+  let index;
+  let dp = [];   
+  var res = 0;
+  for(let i = 0;i<=m;i++)
+  {
+    dp[i] = [];
+    for(let j = 0;j<=n;j++) {
+      if(i === 0 || j === 0) {
+        dp[i][j] = 0;
+        continue;
+      }
+      if(str1[i-1] === str2[j-1]) {
+        dp[i][j] = dp[i-1][j-1]+1;
+        if(dp[i][j]>res){
+          res = dp[i][j];
+        	index = i;
+        }
+      }
+      else 
+        dp[i][j] = 0;
+    }
+  }
+  console.log(str1.slice(index - res,res));
+}
+demo("abcde","bddfabcdee");
+```
+## 最长回文子串
+```JavaScript
+var longestPalindrome = function(s) {
+    if(s.length === 0) return "";
+    let dp = [];
+    let len = s.length;
+    var res = "";
+    //从后往前，使d[i][]依赖dp[i+1][];
+    for(let i = len - 1;i>=0;i--) {
+        dp[i] = [];
+        for(let j = i;j<len;j++) {
+            if(i === j) dp[i][j] = true;
+            else if(j - i === 1 && s[i] === s[j]) dp[i][j] = true;
+            else if(s[i] === s[j] && dp[i+1][j-1]) dp[i][j] = true;
+
+            if(dp[i][j] && j-i+1 > res.length)
+                res = s.slice(i,j+1);
+        }
+    }
+    return res;
+};
+```
+
