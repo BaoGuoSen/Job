@@ -150,7 +150,7 @@ console.log(ex._private); // undefined
 function demo(str1,str2) {
   let m = str1.length;
   let n = str2.length;
-  let index;
+ let index;
   let dp = [];   
   var res = 0;
   for(let i = 0;i<=m;i++)
@@ -165,16 +165,19 @@ function demo(str1,str2) {
         dp[i][j] = dp[i-1][j-1]+1;
         if(dp[i][j]>res){
           res = dp[i][j];
-        	index = i;
+        	index = i-1;
+          
         }
       }
       else 
         dp[i][j] = 0;
     }
   }
-  console.log(str1.slice(index - res,res));
+  console.log(index);
+          console.log(res);
+  console.log(str1.slice(index-res+1,index+1));
 }
-demo("abcde","bddfabcdee");
+demo("abcde","bddfabcde4543564");
 ```
 ## 最长回文子串
 ```JavaScript
