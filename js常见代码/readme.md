@@ -201,4 +201,14 @@ var longestPalindrome = function(s) {
     return res;
 };
 ```
-
+## 36进制求和
+```JavaScript
+function demo(str1,str2) {
+  let res = 0;
+  let a = parseInt(str1,36);
+  let b = parseInt(str2,36);
+  res = a+b;
+  return res.toString(36);
+}
+console.log(demo("a",1));
+```
