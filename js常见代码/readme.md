@@ -212,3 +212,21 @@ function demo(str1,str2) {
 }
 console.log(demo("a",1));
 ```
+## new的模拟实现
+```JavaScript
+function person() {
+  this.name = "test";
+}
+function _new() {
+  let obj = new Object();
+ 
+  let _constructor = [].shift.call(arguments);
+  
+  obj.__proto__  = _constructor.prototype;
+  
+  let res = _constructor.apply(obj,arguments);
+  return typeof res === 'object' ? res:obj;
+}
+let obj = _new(person);
+console.log(obj.name);
+```
