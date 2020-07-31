@@ -1,3 +1,18 @@
+## 目录
+- url参数提取为对象
+- 深拷贝函数
+- 防抖
+- 节流
+- Ajax
+- instanceof实现
+- 数组扁平化
+- 大数相加
+- 私有变量
+- 最长公共子串
+- 最长回文子串
+- 36进制求和
+- new的模拟实现
+- 全排列
 ## url参数提取为对象
 ```JavaScript
 function demo(str) {
@@ -229,4 +244,25 @@ function _new() {
 }
 let obj = _new(person);
 console.log(obj.name);
+```
+## 全排列
+```JavaScript
+function dfs(list,templist,nums) {
+  if(nums.length === templist.length) {
+    list.push([...templist]);
+  }
+  for(let i = 0;i<nums.length;i++) {
+    if(templist.includes(nums[i])) continue;
+    templist.push(nums[i]);
+    dfs(list,templist,nums);
+    templist.pop();
+  }
+  return list;
+}
+function permute(nums) {
+  let list = [];
+  dfs(list,[],nums);
+  return list;
+}
+console.log(permute("123"));
 ```
