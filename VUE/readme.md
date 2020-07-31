@@ -45,3 +45,14 @@
 ## computed和watch的区别
 - computed是计算属性，根据依赖的数据动态显示新的计算结果，在getter执行后会缓存computed的值，如果依赖属性值改变，下一次会重新对应的getter计算computed的值；
 - watch是一个data的数据监听回调；当数据改变时，会触发watch；
+## Object.defineProperty和proxy的优劣区别
+1. vue3.0使用proxy监听对象；
+2. proxy可以直接监听数组的变化；
+3. proxy有多达13种拦截方法；
+4. 不需要像Object.defineProperty一样遍历对象属性，直接代理对象；
+## v-model原理
+- <input v-bind:value="msg" v-on:input="msg=$event.target.value" />
+- v-model本质上是语法糖，使用v-bind绑定数据，v-on：监听数据；
+## v-if不能和v-for一起使用的原因
+1. 可以一起使用但应该尽量避免
+2. v-for的优先级要比v-if高，当处于同一节点时，意味着v-if将分别重复运行于每个v-for循环中；所以应该尽量避免；
