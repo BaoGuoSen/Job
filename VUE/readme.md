@@ -18,9 +18,6 @@
 ## vue中key的作用
 1. 高效的更新虚拟DOM
 2. 在同级的 vnode diff 过程中，可以根据 key 快速的对比，来判断是否为相同节点，并且利用 key 的唯一性可以生成 map 来更快的获取相应的节点。
-## 父子组件通信
-1. props向下传递，事件冒泡向上传递；
-2. v-model实现双向绑定；
 ## 页面组件间的传值
 1. 使用vue-router跳转链接带参数；
 2. 使用本地缓存localstorage；
@@ -56,3 +53,7 @@
 ## v-if不能和v-for一起使用的原因
 1. 可以一起使用但应该尽量避免
 2. v-for的优先级要比v-if高，当处于同一节点时，意味着v-if将分别重复运行于每个v-for循环中；所以应该尽量避免；
+## vue组件间的通信
+1. 父子之间的通信：props/$emit,$children/$parent;
+2. 兄弟间通信，全局通信：eventBus/Vuex；
+3. 参考链接：https://juejin.im/post/6844903887162310669#heading-21
