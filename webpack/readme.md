@@ -24,3 +24,18 @@ webpack的构建流程是一个串行的过程；
 3. TreeShaking:删除无用的代码；
 4. 按需加载
 5. 通过DLLplugin提前打包指定的类；
+
+## 常见loder和plugin及作用
+1. loder：
+- html-loder:将HTML文件导出编译为字符串，可供js识别的其中一个模块
+- css-loder：解析css文件中代码；
+- style-loder：将css模块作为样式导出到DOM中
+- sass-loder：加载和转义sass/scss文件
+- babel-loder：加载ES6+代码后使用babel转义为浏览器能够解析的版本；
+- url-loder：用于加载图片资源，超过文件大小显示则返回dataurl；
+- vue-loder：加载和转义vue组件；
+2. plugin：
+- HtmlWebpackPlugin：将所有生成的js文件引入到html中，
+- HotModuleReplacementPlugin:实现模块热替换；
+- imagemin-webpack-plugin：批量压缩图片；
+- clean-webpack-plugin：每次打包时先清空output文件夹；
