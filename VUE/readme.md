@@ -57,3 +57,8 @@
 1. 父子之间的通信：props/$emit,$children/$parent;
 2. 兄弟间通信，全局通信：eventBus/Vuex；
 3. 参考链接：https://juejin.im/post/6844903887162310669#heading-21
+
+## vue对Array数据双向绑定的实现
+- 参考：https://juejin.im/post/6844903605057617934
+1. 创建一个原型指向Array.prototype 的对象arraymethods，使用Object.defineproperty对此对象的数组方法写进行监听；
+2. 然后新建的数组对象原型指向arraymethods；
