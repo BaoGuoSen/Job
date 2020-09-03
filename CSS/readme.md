@@ -78,3 +78,7 @@
 2. @import
 - 只能加载css文件
 - 需要页面完全加载后才能加载；
+
+## 设置节点样式方法
+1. 直接设置style属性：node.style.height = "100px";
+2. 直接设置class属性：node.setAttribute("class","test");(test为style中的class);
