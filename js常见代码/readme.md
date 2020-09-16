@@ -103,39 +103,31 @@ arr.flat(Infinity);
 ```
 ## js大数相加
 ```JavaScript
-function bigadd(str1,str2) {
-  let maxlen = 0;
+function bigadd(x,y) {
+    x = x.split("");
+    y = y.split("");
+    let res = [];
+    let carry = 0;
+    while(x.length !==0 && y.length !==0) {
+        let temp = parseInt(x.pop()) + parseInt(y.pop()) + carry;
+        res.unshift(temp%10);
+        carry = Math.floor(temp/10);
+    }
 
-  if(str1.length>str2.length) {
-    maxlen = str1.length;
-    let flag = str1.length - str2.length
-    for(let i = 0;i<flag;i++) {
-      str2 = 0+str2;
+    while(x.length !== 0) {
+        let temp = carry + parseInt(x.pop());
+        res.unshift(temp%10);
+        carry = Math.floor(temp/10);
     }
-  }
-  else if(str1.length<str2.length) {
-    maxlen = str2.length;
-    let flag = str2.length - str1.length
-    for(let i = 0;i<flag;i++) {
-      str1 = 0+str1;
+    while(y.length !== 0) {
+        let temp = carry + parseInt(y.pop());
+        res.unshift(temp%10);
+        carry = Math.floor(temp/10);
     }
-  }
-     
-  let num1 = str1.split("");
-  let num2 = str2.split("");
- 
-  let res = [];
-  let carry = 0;
-  for(let i = maxlen-1;i>=0;i--) {
-    let temp = parseInt(num1[i])+parseInt(num2[i]);
-   
-    res.unshift(temp%10+carry);
-    carry = parseInt(temp/10);
     
-  }
-  return res.join("");
+    return res.join("");
 }
-console.log(bigadd("343534564564565462233434344534543","123676575675675675675"));
+console.log(bigadd("123456789987654321","500381199802034135"));
 ```
 ## 私有变量
 ```JavaScript
