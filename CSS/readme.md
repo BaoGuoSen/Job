@@ -82,3 +82,11 @@
 ## 设置节点样式方法
 1. 直接设置style属性：node.style.height = "100px";
 2. 直接设置class属性：node.setAttribute("class","test");(test为style中的class);
+
+## position定位
+1. static 默认值，遵循正常的文档流；
+2. fixed 相对于浏览器窗口的位置；
+3. relative 相对其正常的位置，依然占据原本的空间
+4. absolute 相对于最近的以定位的父元素
+5. sticky 根据用户的滚动位置来定位；
+- 重叠的元素：脱离文档流的元素发生重叠，根据z-index 来显示谁上谁下；
