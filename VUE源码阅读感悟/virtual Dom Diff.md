@@ -43,4 +43,4 @@
 - 清空文本
 
 ## patch流程图
-<img src="https://github.com/BaoGuoSen/Job/blob/master/imgs/patch.png" alt="图片替换文本" width="800" height="613" align="bottom" />
+<img src="https://github.com/BaoGuoSen/Job/blob/master/imgs/patch.png" alt="图片替换文本" width="800" height="1000" align="bottom" />
