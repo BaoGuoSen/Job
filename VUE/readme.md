@@ -62,3 +62,6 @@
 - 参考：https://juejin.im/post/6844903605057617934
 1. 创建一个原型指向Array.prototype 的对象arraymethods，使用Object.defineproperty对此对象的数组方法写进行监听；
 2. 然后新建的数组对象原型指向arraymethods；
+
+## vue的data为什么是函数而不是对象？
+1. vue的data数据其实是vue原型上的属性，数据存在于内存中，为了保证每个实例上data数据的独立性，所以用了函数，因为如果是使用对象的话，每个vue实例的data数据都是互相影响的。
