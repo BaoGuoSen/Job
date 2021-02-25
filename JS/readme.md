@@ -132,3 +132,8 @@ function Person(name) {
 - 私有变量
 2. 缺陷:
 - 使用过多会有内存泄漏的问题（所引用的变量一直得不到释放）
+
+## Object 与 Map的区别
+1. Object只能把String和Symbol作为key值，而Map的key值的类型没有限制；
+2. map有size能很方便获取map长度，而Object没有直接获得长度的方法；
+3. map实现了迭代器，能使用for of遍历，而Object没有；不能使用for of 遍历；
