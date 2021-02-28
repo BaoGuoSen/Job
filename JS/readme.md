@@ -137,3 +137,30 @@ function Person(name) {
 1. Object只能把String和Symbol作为key值，而Map的key值的类型没有限制；
 2. map有size能很方便获取map长度，而Object没有直接获得长度的方法；
 3. map实现了迭代器，能使用for of遍历，而Object没有；不能使用for of 遍历；
+
+## 判断函数是被new还是被调用
+1. ES6
+- es6函数有个new.target元属性，被new调用时，指向构造函数本身，函数调用指向undefined
+```JavaScript
+function fn() {
+  if (new.target) {
+    console.log('new')
+  }
+}
+```
+2. es5
+- 函数内部this.constructor,被new调用指向构造函数本身，函数调用指向window
+```JavaScript
+function fn() {
+  if (this.constructor === fn) {
+    console.log('new')
+  }
+}
+```
+
+## Object.prototype.toString.call()原理
+1. 对于undefined返回[object,undefined]
+2. 对于null返回[object,null]
+3. 将this转为Object
+4. 访问内部属性[class]的值
+5. 返回[object,class]
