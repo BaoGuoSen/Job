@@ -118,3 +118,18 @@
 
 ## transform对元素的影响
 - 会新开一个复合图层，fixed定位也是依据复合图层定位的，详情见上。
+
+## 可继承的属性
+- font： font-size,font-weight,font-family
+- text: text-align,text-transform,text-indent
+- color
+- line-height,visibility,cursor
+- list: list-style-type,list-style,list-style-image
+
+## transition使用
+- 在状态切换时产生过度效果，比如渐隐渐显
+```CSS
+.div {
+  transition: opacity 2s 0.5s // 作用属性透明度，过渡持续时间2s ,延迟过度0.5s;
+}
+```
