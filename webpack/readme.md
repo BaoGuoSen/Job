@@ -57,3 +57,6 @@ webpack的构建流程是一个串行的过程；
 ## loder and pulgins的区别
 1. loder：loder本质是一个函数，在该函数中对接收的内容进行转换，因为wb只能处理js文件，所以需要引入loder对其他类型的资源进行转换工作
 2. pulgin：pulgin就是插件，去拓展wb的功能，因为wb只能利用loder去转换某些类型的模块，所以需要引入pulgins去执行范围更广的操作，比如打包优化，压缩，热加载等。
+
+## loder加载顺序
+1. 当有一个文件有多个loder匹配时，loder从右往左，从下到上加载

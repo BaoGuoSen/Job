@@ -8,7 +8,7 @@
   margin: auto;
 }
 ```
-2. flex布局，父元素指定子元素居中
+2. flex布局，父元素指定子元素居中包国
 ```CSS
 .wrapper {
   display:flex;
@@ -106,7 +106,7 @@
 - why？ 因为这样是从树的下面往上遍历，节省了大量错误匹配的时间，能大大优化解析速度；
 
 ## float
-- float元素半脱离文档流，其他盒子会无视这个元素，但其他盒子内的文本依然会为这个元素让出位置，环绕在周围；
+- float元素半脱离文档流，其他盒子会无视这个元素，但其他盒子内的文本和内联元素依然会为这个元素让出位置，环绕在周围；
 - absolute是完全脱离文档，
 
 ## 重排重绘优化
@@ -131,5 +131,44 @@
 ```CSS
 .div {
   transition: opacity 2s 0.5s // 作用属性透明度，过渡持续时间2s ,延迟过度0.5s;
+}
+```
+
+## 文本溢出显示省略号
+```CSS
+  .hid {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+```
+
+## 隐藏滚动条但能滚动的方法
+1. 利用定位，将滚动条移到可视区域外，实际上依然存在
+```CSS
+.scrollHidden {
+  position: absolute;
+  left: 0px;
+  right: -17px; // 滚动条的宽度
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+```
+2. 利用伪元素 -webket-scrollbar
+```CSS
+.scrollHidden::-webkit-scrollbar {  // chrome
+  display:none
+}
+.scrollHidden {
+  scrollbar-width: none // firefox
+  -ms-overflow-style: none //IE 10+
+}
+```
+
+## div元素的高度始终是宽度的一半
+```CSS
+.inner {
+  padding: 25% 0px;
+  height: 0px
 }
 ```
